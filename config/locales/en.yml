@@ -1,23 +1,36 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  confirm: "Are you sure?"
+  back: "Back"
+  hello: "Hello"
+  project: "FTS_42"
+  layouts:
+    header:
+      home: "Home"
+      help: "Help"
+      sign_in: "Signin"
+    footer:
+      about: "About"
+      contact: "Contact"
+  static_pages:
+    home:
+      sign_up_now: "Sign up now !"
+      welcome: "Welcome to the FTS"
+  user:
+    login: "Log in"
+    signin_with: "Sign in with"
+    signup: "Sign up"
+    logout: "Log out"
+    edit: "Edit"
+    cancel_account: "Cancel my account"
+    profile: "Profile"
+    char_min: "characters minimum"
+    password_waiting: "Currently waiting confirmation for:"
+    leave_blank: "leave blank if you don't want to change it"
+    current_password: "we need your current password to confirm your changes"
+    send_reset_pass: "Send me reset password instructions"
+    forgot_pass: "Forgot your password?"
+    change_pass: "Change my password"
+    new_pass: "New password"
+    confirm_new_pass: "Confirm new password"
+    request_change: "Someone has requested a link to change your password. You can do this through the link below."
+
