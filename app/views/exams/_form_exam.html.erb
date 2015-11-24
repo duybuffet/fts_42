@@ -1,0 +1,14 @@
+<div class="new_exam">
+  <%= form_for @exam do |f| %>
+    <div class="col-md-6">
+      <div class="input-group">
+        <%= f.hidden_field :status, value: 0 %>
+        <%= f.collection_select :subject_id, @subjects, :id, :name, {},
+          class: "form-control" %>
+        <span class="input-group-btn">
+          <%= f.submit t("exams.index.submit"), class: "btn btn-primary" %>
+        </span>
+      </div>
+    </div>
+  <% end %>
+</div>
