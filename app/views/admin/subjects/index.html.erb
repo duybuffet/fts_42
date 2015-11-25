@@ -1,0 +1,17 @@
+<% provide :title, t("admin.subject.manage_subject") %>
+<div class="col-md-10">
+  <h1>
+    <%= t "admin.subject.subjects" %>
+    <%= link_to t("admin.add_btn"), new_admin_subject_path, class: "btn btn-primary" %>
+  </h1>
+  <table class="table table-striped table-condensed table-hover table-responsive
+    table-bordered">
+    <tr>
+      <th><%= t "admin.subject.table.id" %></th>
+      <th><%= t "admin.subject.table.name" %></th>
+      <th><%= t "admin.subject.table.action" %></th>
+    </tr>
+    <%= render @subjects %>
+  </table>
+  <%= paginate @subjects %>
+</div>

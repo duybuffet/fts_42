@@ -17,6 +17,7 @@ gem "sdoc", "~> 0.4.0", group: :doc
 gem "config"
 gem "devise", "3.4.1"
 gem "cancancan"
+gem "kaminari"
 
 group :development, :test do
   gem "sqlite3", "1.3.9"

@@ -1,0 +1,12 @@
+<div class="col-sm-3 col-md-2 sidebar">
+  <ul class="nav nav-sidebar">
+    <li>
+      <span><%= link_to t("admin.dashboard"), admin_root_path %></span>
+    </li>
+    <li>
+      <span><%= link_to t("admin.subject.manage_subject"), "#" %></span>
+      <%= link_to t("admin.subject.add_subject"), new_admin_subject_path %>
+      <%= link_to t("admin.subject.subjects"), admin_subjects_path %>
+    </li>
+  </ul>
+</div>
