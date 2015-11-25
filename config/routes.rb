@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     root "dashboard#home"
     resources :subjects
     resources :questions
+    resources :users
   end
 end

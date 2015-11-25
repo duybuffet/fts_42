@@ -1,0 +1,32 @@
+<tr>
+  <td><%= user.id %></td>
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <td><%= user.chatwork_id %></td>
+  <td>
+    <span class="label label-<%= user.admin? ? "info" : "default" %>">
+      <%= user.role %>
+    </span>
+  </td>
+  <td>
+    <% if user != current_user %>
+      <%= form_for [:admin, user], html: {class: "role_form"} do |f| %>
+        <%= f.hidden_field :role, value: user.admin? ? :member : :admin %>
+        <% if user.admin? %>
+          <%= button_tag type: "submit", class: "btn btn-primary btn-sm",
+            data: {toggle: "tooltip"}, title: t("admin.user.set_member") do %>
+            <span class="glyphicon glyphicon-arrow-down"></span>
+          <% end %>
+        <% else %>
+          <%= button_tag type: "submit", class: "btn btn-warning btn-sm",
+            data: {toggle: "tooltip"}, title: t("admin.user.make_admin") do %>
+            <span class="glyphicon glyphicon-arrow-up"></span>
+          <% end %>
+        <% end %>
+      <% end %>
+      <%= link_to "", admin_user_path(user),
+        method: :delete, data: {confirm: t("confirm")},
+        class: "glyphicon glyphicon-trash btn btn-danger btn-sm" %>
+    <% end %>
+  </td>
+</tr>
