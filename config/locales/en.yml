@@ -61,6 +61,20 @@ en:
         id: "ID"
         name: "Name"
         action: "Action"
+    user:
+      make_admin: "Make admin"
+      set_member: "Set member"
+      manage_user: "User Manager"
+      edit_user: "Update User"
+      users: "All Users"
+      add_btn: "Add New"
+      table:
+        id: "ID"
+        name: "Name"
+        email: "Email"
+        chatwork_id: "Chatwork ID"
+        role: "Role"
+        action: "Action"
     question:
       table:
         id: "ID"
