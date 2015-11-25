@@ -41,15 +41,28 @@ en:
     edit_btn: "Edit"
     add_success: "Add Successfully!"
     add_fail: "Add Fail!"
+    update_success: "Update Successfully!"
+    update_fail: "Update Fail!"
     delete_success: "Delete Successfully!"
     delete_fail: "Delete Fail!"
     dashboard: "Dashboard"
     subject:
       manage_subject: "Subject Manager"
       add_subject: "Add new subject"
+      edit_subject: "Update subject"
+      show_subject: "Subject details"
       subjects: "All Subjects"
       add_btn: "Add New"
+      add_question: "Add New Question"
+      question: "question"
+      list_question: "List Question"
       table:
         id: "ID"
         name: "Name"
+        action: "Action"
+    question:
+      table:
+        id: "ID"
+        content: "Content"
+        type: "Type"
         action: "Action"

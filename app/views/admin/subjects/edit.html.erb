@@ -1,0 +1,18 @@
+<% provide :title, t("admin.subject.edit_subject") %>
+<div class="col-md-10">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h4><%= t "admin.subject.edit_subject" %></h4>
+    </div>
+    <div class="panel-body">
+      <%= form_for @subject, url: admin_subject_path do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "form-control" %>
+        <br/>
+        <%= f.submit t("admin.edit_btn"), class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
