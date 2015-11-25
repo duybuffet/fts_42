@@ -87,3 +87,21 @@ en:
       submit: "Create Exam"
       success_create: "Create Successed"
       fails_create: "Create Fails"
+      created_date: "Created Date"
+      subject: "Subject"
+      status: "Status"
+      duration: "Duration"
+      question_number: "Question Number"
+      spent_time: "Spent Time"
+      score: "Score"
+    status:
+      start: "Start"
+      checked: "Checked"
+      uncheck: "Uncheck"
+      testing: "Testing"
+    view: "View"
+    spent_time_default: "00:00"
+    score_default: "-"
+  time:
+    formats:
+      created_date: "%d-%m-%Y %H:%M:%S"

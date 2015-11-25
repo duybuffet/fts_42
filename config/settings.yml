@@ -1,1 +1,10 @@
 per_page: 15
+exams:
+  status:
+    start: 0
+    uncheck: 1
+    checked: 2
+    testing: 3
+  duration: 20
+  question_number: 30
+  time_minute: 60
