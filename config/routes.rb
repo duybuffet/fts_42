@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   namespace :admin do
     root "dashboard#home"
     resources :subjects
+    resources :questions
   end
 end
