@@ -1,8 +1,10 @@
 en:
   confirm: "Are you sure?"
+  form_contain: "The form contains"
   back: "Back"
   hello: "Hello"
   project: "FTS_42"
+  error: "error"
   layouts:
     header:
       home: "Home"
@@ -33,3 +35,21 @@ en:
     new_pass: "New password"
     confirm_new_pass: "Confirm new password"
     request_change: "Someone has requested a link to change your password. You can do this through the link below."
+  admin:
+    add_btn: "Add New"
+    delete_btn: "Delete"
+    edit_btn: "Edit"
+    add_success: "Add Successfully!"
+    add_fail: "Add Fail!"
+    delete_success: "Delete Successfully!"
+    delete_fail: "Delete Fail!"
+    dashboard: "Dashboard"
+    subject:
+      manage_subject: "Subject Manager"
+      add_subject: "Add new subject"
+      subjects: "All Subjects"
+      add_btn: "Add New"
+      table:
+        id: "ID"
+        name: "Name"
+        action: "Action"
