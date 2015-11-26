@@ -1,7 +1,8 @@
 <div class="new_exam">
   <%= form_for @exam do |f| %>
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="input-group">
+        <%= f.hidden_field :user_id, value: current_user.id %>
         <%= f.hidden_field :status, value: 0 %>
         <%= f.collection_select :subject_id, @subjects, :id, :name, {},
           class: "form-control" %>

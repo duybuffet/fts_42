@@ -5,4 +5,8 @@ class Exam < ActiveRecord::Base
   has_many :results, dependent: :destroy
 
   accepts_nested_attributes_for :results, allow_destroy: true
+
+  def score
+    self.results.select{|item| item.correct}.size
+  end
 end
