@@ -10,6 +10,10 @@ exams:
   time_minute: 60
 question:
   type:
-    single: :single
-    multiple: :multiple
-    text: :text
+    single: "single"
+    multiple: "multiple"
+    text: "text"
+  status:
+    waiting: "waiting"
+    approved: "approved"
+    cancel: "cancel"

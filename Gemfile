@@ -18,6 +18,7 @@ gem "config"
 gem "devise", "3.4.1"
 gem "cancancan"
 gem "kaminari"
+gem "ransack"
 
 group :development, :test do
   gem "sqlite3", "1.3.9"

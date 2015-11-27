@@ -1,7 +1,12 @@
 <tr>
   <td><%= question.id %></td>
   <td><%= question.content %></td>
-  <td><%= question.question_type %></td>
+  <td>
+    <%= add_label_for_type question.question_type %>
+  </td>
+  <td>
+    <%= add_label_for_status question.status %>
+  </td>
   <td>
     <%= link_to "", "#", class: "glyphicon glyphicon-pencil btn btn-warning
       btn-sm" %>

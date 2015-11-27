@@ -23,4 +23,26 @@ module ApplicationHelper
     content_tag(:spam, "<span class='btn btn-success'>#{name}</span>".html_safe,
       class: "add_child", "data-association"=> association, target: target)
   end
+
+  def add_label_for_type type
+    case type
+    when Settings.question.type.single
+      content_tag :span, t("admin.question.type.single"), class: "label label-info"
+    when Settings.question.type.multiple
+      content_tag :span, t("admin.question.type.multiple"), class: "label label-warning"
+    when Settings.question.type.text
+      content_tag :span, t("admin.question.type.text"), class: "label label-primary"
+    end
+  end
+
+  def add_label_for_status status
+    case status
+    when Settings.question.status.waiting
+      content_tag :span, t("admin.question.type.waiting"), class: "label label-default"
+    when Settings.question.status.approved
+      content_tag :span, t("admin.question.type.approved"), class: "label label-success"
+    when Settings.question.status.cancel
+      content_tag :span, t("admin.question.type.cancel"), class: "label label-danger"
+    end
+  end
 end
