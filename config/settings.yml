@@ -8,3 +8,8 @@ exams:
   duration: 20
   question_number: 30
   time_minute: 60
+question:
+  type:
+    single: :single
+    multiple: :multiple
+    text: :text

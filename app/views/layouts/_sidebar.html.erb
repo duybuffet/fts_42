@@ -9,6 +9,11 @@
       <%= link_to t("admin.subject.subjects"), admin_subjects_path %>
     </li>
     <li>
+      <span><%= link_to t("admin.question.manage_question"), "#" %></span>
+      <%= link_to t("admin.question.add_question"), new_admin_question_path %>
+      <%= link_to t("admin.question.questions"), admin_questions_path %>
+    </li>
+    <li>
       <span><%= link_to t("admin.user.manage_user"), "#" %></span>
       <%= link_to t("admin.user.users"), admin_users_path %>
     </li>
