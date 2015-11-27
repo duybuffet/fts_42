@@ -1,0 +1,34 @@
+<% provide :title, t("admin.question.add_title") %>
+<div class="col-md-offset-1 col-md-7">
+  <h1><%= t "admin.question.add_title" %></h1>
+  <%= form_for @question, url: admin_questions_path do |f| %>
+    <span class="alert_true_answer"><%= t "admin.question.true_answer" %></span>
+    <%= render "shared/error_messages", object: f.object %>
+    <%= f.hidden_field :status, value: :approved %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.label :subject %>
+    <%= f.select :subject_id,
+      options_from_collection_for_select(@subjects, :id, :name,
+      params[:subject_id]), {}, {class: "form-control"} %>
+    <%= f.label :content %>
+    <%= f.text_field :content, class: "form-control" %>
+    <%= f.label :level %>
+    <%= f.select :question_type, options_for_select(Settings.question.type), {},
+      {class: "form-control question_type"} %>
+    <br/>
+    <div id="answers">
+      <%= f.fields_for :answers do |answer| %>
+        <%= render "answer_form", f: answer %>
+      <% end %>
+    </div>
+
+    <div>
+      <%= add_child_button t("admin.add_answer_btn"), :answers,
+        "#answers" %>
+      <%= new_fields_template f, :answers %>
+    </div>
+    <br/>
+    <%= f.submit t("admin.add_btn"), class: "btn btn-primary col-md-12",
+      id: "btn_question" %>
+  <% end %>
+</div>

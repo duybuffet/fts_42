@@ -37,6 +37,7 @@ en:
     confirm_new_pass: "Confirm new password"
     request_change: "Someone has requested a link to change your password. You can do this through the link below."
   admin:
+    add_answer_btn: "New answer"
     add_btn: "Add New"
     delete_btn: "Delete"
     edit_btn: "Edit"
@@ -76,6 +77,12 @@ en:
         role: "Role"
         action: "Action"
     question:
+      true_answer: You have to define at least 1 true answer
+      manage_question: "Question Manager"
+      edit_quesion: "Update Question"
+      add_question: "Add new question"
+      questions: "All Questions"
+      add_btn: "Add New"
       table:
         id: "ID"
         content: "Content"
