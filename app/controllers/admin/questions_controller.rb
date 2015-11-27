@@ -2,6 +2,11 @@ class Admin::QuestionsController < ApplicationController
   load_and_authorize_resource
   before_action :load_subjects, only: [:new, :create]
 
+  def index
+    @q = @questions.ransack params[:q]
+    @questions = @q.result.page params[:page]
+  end
+
   def new
     @question.answers.new
   end

@@ -77,6 +77,7 @@ en:
         role: "Role"
         action: "Action"
     question:
+      search_holder: "Enter question content ..."
       true_answer: You have to define at least 1 true answer
       manage_question: "Question Manager"
       edit_quesion: "Update Question"
@@ -87,7 +88,16 @@ en:
         id: "ID"
         content: "Content"
         type: "Type"
+        status: "Status"
         action: "Action"
+      type:
+        single: "Single Choice"
+        multiple: "Multiple Choice"
+        text: "Text"
+      status:
+        waiting: "Waiting for approve"
+        approved: "Approved"
+        cancel: "Canceled"
   exams:
     index:
       title: "Exam"

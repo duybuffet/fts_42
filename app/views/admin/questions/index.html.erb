@@ -1,0 +1,25 @@
+<% provide :title, t("admin.question.manage_question") %>
+<div class="col-md-10">
+  <h1>
+    <%= t "admin.question.questions" %>
+    <%= link_to t("admin.add_btn"), new_admin_question_path, class: "btn btn-primary" %>
+  </h1>
+  <br/>
+  <p>
+    <%= render "search_form" %>
+  </p>
+  <br/>
+  <br/>
+  <table class="table table-striped table-condensed table-hover table-responsive
+    table-bordered">
+    <tr>
+      <th><%= sort_link @q, :id, t("admin.question.table.id") %></th>
+      <th><%= sort_link @q, :content, t("admin.question.table.content") %></th>
+      <th><%= sort_link @q, :question_type, t("admin.question.table.type") %></th>
+      <th><%= sort_link @q, :status, t("admin.question.table.status") %></th>
+      <th><%= t "admin.question.table.action" %></th>
+    </tr>
+    <%= render @questions %>
+  </table>
+  <%= paginate @questions %>
+</div>
