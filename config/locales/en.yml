@@ -6,11 +6,17 @@ en:
   hello: "Hello"
   project: "FTS_42"
   error: "error"
+  contribute_success: "Contribute Successfully!"
+  contribute_fail: "Contribute Fail!"
+  add_answer_btn: "New answer"
+  add_btn: "Contribute Question"
+  delete_btn: "Delete"
   layouts:
     header:
       home: "Home"
       help: "Help"
       sign_in: "Signin"
+      contribute: "Contribute Question"
     footer:
       about: "About"
       contact: "Contact"
@@ -18,6 +24,12 @@ en:
     home:
       sign_up_now: "Sign up now !"
       welcome: "Welcome to the FTS"
+  question:
+    true_answer: You have to define at least 1 true answer
+    add_question: "Contribute question"
+    questions: "All Questions"
+    add_btn: "Contribute"
+    add_title: "Contribute Question"
   user:
     login: "Log in"
     signin_with: "Sign in with"
@@ -84,6 +96,7 @@ en:
       add_question: "Add new question"
       questions: "All Questions"
       add_btn: "Add New"
+      add_title: "Add Question"
       table:
         id: "ID"
         content: "Content"

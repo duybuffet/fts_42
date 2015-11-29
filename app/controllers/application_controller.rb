@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << [:name, :chatwork_id]
     devise_parameter_sanitizer.for(:account_update) << [:name, :chatwork_id]
   end
+
+  def load_subjects
+    @subjects = Subject.all
+  end
 end
