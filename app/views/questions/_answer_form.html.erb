@@ -1,0 +1,15 @@
+<div class="single_answer">
+  <div class="panel panel-info fields">
+    <div class="panel-heading">
+      <%= f.label :content, t("question.answer") %>
+    </div>
+    <div class="panel-body">
+      <%= f.text_field :content, class: "form-control question_content" %>
+      <%= f.check_box :correct, class: "checkbox_answer" %>
+      <%= f.label :correct, t("word.correct"), class: "correct_answer" %>
+      <%= f.hidden_field :_destroy, class: "hidden_destroy_field" %>
+      <%= f.label t("delete_btn"),
+        class: "remove_fields btn btn-danger btn-xs" %>
+    </div>
+  </div>
+</div>
