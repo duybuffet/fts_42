@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125092129) do
+ActiveRecord::Schema.define(version: 20151130055722) do
 
   create_table "answers", force: :cascade do |t|
     t.boolean  "correct"
@@ -50,16 +50,15 @@ ActiveRecord::Schema.define(version: 20151125092129) do
 
   create_table "results", force: :cascade do |t|
     t.boolean  "correct"
-    t.integer  "answer_id"
     t.integer  "question_id"
     t.integer  "exam_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.string   "content_answer"
   end
 
-  add_index "results", ["answer_id", "question_id", "exam_id"], name: "index_results_on_answer_id_and_question_id_and_exam_id", unique: true
-  add_index "results", ["answer_id"], name: "index_results_on_answer_id"
   add_index "results", ["exam_id"], name: "index_results_on_exam_id"
+  add_index "results", ["question_id", "exam_id"], name: "index_results_on_answer_id_and_question_id_and_exam_id", unique: true
   add_index "results", ["question_id"], name: "index_results_on_question_id"
 
   create_table "subjects", force: :cascade do |t|

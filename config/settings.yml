@@ -1,13 +1,15 @@
 per_page: 15
 exams:
   status:
-    start: 0
-    uncheck: 1
-    checked: 2
-    testing: 3
+    start: "start"
+    uncheck: "uncheck"
+    checked: "checked"
+    testing: "testing"
   duration: 20
   question_number: 30
   time_minute: 60
+  time_out: 0
+  one: 1
 question:
   type:
     single: "single"

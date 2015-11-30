@@ -22,7 +22,7 @@
           <tbody>
             <% @exams.each do |exam| %>
               <tr id="exam-<%= exam.id %>">
-                <td><%= exam.created_at %></td>
+                <td><%= l exam.created_at, format: :created_date %></td>
                 <td><%= exam.subject.name %></td>
                 <td><%= status_exam exam %></td>
                 <td><%= Settings.exams.duration %></td>
@@ -39,10 +39,10 @@
                   <%= exam.results.size == 0 ? t("exams.score_default") : exam.score %>
                 </td>
                 <td>
-                  <% if exam.status == Settings.exams.status.start %>
-                    <%= link_to t("exams.status.start"), "#", class: "btn btn-primary" %>
+                  <% if exam.start? %>
+                    <%= link_to t("exams.status.start"), exam, class: "btn btn-primary" %>
                   <% else %>
-                    <%= link_to t("exams.view"), "#", class: "btn btn-primary" %>
+                    <%= link_to t("exams.view"), exam, class: "btn btn-success" %>
                   <% end %>
                 </td>
               </tr>

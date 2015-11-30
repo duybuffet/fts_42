@@ -129,9 +129,16 @@ en:
       checked: "Checked"
       uncheck: "Uncheck"
       testing: "Testing"
+    show:
+      submit: "Submit"
+      save: "Save"
+      time_over: "Time over"
     view: "View"
     spent_time_default: "00:00"
     score_default: "-"
+    test: "Test"
+    update_success: "Update success"
+    update_fails: "Update Fails"
   time:
     formats:
-      created_date: "%d-%m-%Y %H:%M:%S"
+      created_date: "%D-%M-%Y %H:%M:%S"

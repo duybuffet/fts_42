@@ -148,12 +148,12 @@ input.radio_question, .checkbox_answer {
 
 .new_exam {
   margin-left: 0px;
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin-top: 20px;
 }
 
 .list-exam {
-  margin-top: 50px;
+  top: 50px;
+  position: relative;
 }
 
 th, tr {
@@ -166,4 +166,19 @@ span.alert_true_answer {
 
 a.sort_link {
   text-decoration: none;
+}
+
+th {
+  background-color: #3071A9;
+  color: white;
+}
+
+li.answer {
+  list-style-type: none;
+}
+
+#clock {
+  position: fixed;
+  top: 40px;
+  right: 30px;
 }
