@@ -5,7 +5,7 @@ class Question < ActiveRecord::Base
   has_many :answers, dependent: :destroy
   has_many :results, dependent: :destroy
   enum question_type: [:single, :multiple, :text]
-  enum status: [:waiting, :approved, :cancel]
+  enum status: [:waiting, :approved]
 
   validates :content, presence: true
   validates :question_type, presence: true

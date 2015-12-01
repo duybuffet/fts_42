@@ -98,8 +98,11 @@ en:
       questions: "All Questions"
       add_btn: "Add New"
       add_title: "Add Question"
+      show_title: "Question Details"
       edit_btn: "Update question"
       edit_title: "Update"
+      approve_btn: "Approve Question"
+      cancel_btn: "Cancel Question"
       table:
         id: "ID"
         content: "Content"

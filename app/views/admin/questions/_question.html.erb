@@ -1,6 +1,6 @@
 <tr>
   <td><%= question.id %></td>
-  <td><%= question.content %></td>
+  <td><%= link_to question.content, admin_question_path(question) %></td>
   <td>
     <%= add_label_for_type question.question_type %>
   </td>
@@ -8,9 +8,10 @@
     <%= add_label_for_status question.status %>
   </td>
   <td>
-    <%= link_to "", edit_admin_question_path(question), class: "glyphicon glyphicon-pencil btn btn-warning
-      btn-sm" %>
-    <%= link_to "", admin_question_path(question), method: :delete, data: {confirm: t("confirm")},
-      class: "glyphicon glyphicon-trash btn btn-danger btn-sm" %>
+    <%= link_to "", edit_admin_question_path(question), class: "glyphicon
+      glyphicon-pencil btn btn-warning btn-sm" %>
+    <%= link_to "", admin_question_path(question), method: :delete,
+      data: {confirm: t("confirm")}, class: "glyphicon glyphicon-trash btn
+      btn-danger btn-sm" %>
   </td>
 </tr>

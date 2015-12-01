@@ -7,6 +7,9 @@ class Admin::QuestionsController < ApplicationController
     @questions = @q.result.page params[:page]
   end
 
+  def show
+  end
+
   def new
     @question.answers.new
   end

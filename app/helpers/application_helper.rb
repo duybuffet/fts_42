@@ -41,8 +41,6 @@ module ApplicationHelper
       content_tag :span, t("admin.question.type.waiting"), class: "label label-default"
     when Settings.question.status.approved
       content_tag :span, t("admin.question.type.approved"), class: "label label-success"
-    when Settings.question.status.cancel
-      content_tag :span, t("admin.question.type.cancel"), class: "label label-danger"
     end
   end
 end
