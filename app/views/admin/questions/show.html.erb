@@ -1,0 +1,29 @@
+<% provide :title, t("admin.question.edit_title") %>
+<div class="col-md-offset-1 col-md-7">
+  <h1><%= t "admin.question.show_title" %></h1>
+  <%= form_for @question, url: admin_question_path do |f| %>
+    <span class="alert_true_answer"><%= t "admin.question.true_answer" %></span>
+    <%= render "shared/error_messages", object: f.object %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :status, value: @question.waiting? ? :approved : :waiting %>
+    <%= f.label :subject %>
+    <%= f.select :subject_id,
+      options_from_collection_for_select(@subjects, :id, :name,
+      @question.subject.id), {}, {class: "form-control", readonly: true} %>
+    <%= f.label :content %>
+    <%= f.text_field :content, class: "form-control", readonly: true %>
+    <%= f.label :type %>
+    <%= f.select :question_type, options_for_select(Settings.question.type,
+      @question.question_type), {}, {class: "form-control question_type",
+      readonly: true} %>
+    <br/>
+    <div id="answers-view-only">
+      <%= f.fields_for :answers do |answer| %>
+        <%= render "answer_view_form", f: answer %>
+      <% end %>
+    </div>
+    <br/>
+    <%= f.submit @question.waiting? ? t("admin.question.approve_btn") : t("admin.question.cancel_btn"),
+      class: "btn btn-primary col-md-12" %>
+  <% end %>
+</div>

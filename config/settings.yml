@@ -18,4 +18,3 @@ question:
   status:
     waiting: "waiting"
     approved: "approved"
-    cancel: "cancel"
