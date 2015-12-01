@@ -1,0 +1,32 @@
+<% provide :title, t("exams.test") %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="text-center">
+      <h1><%= @exam.subject.name %></h1>
+    </div>
+    <div class="clock">
+      <% if @time_remaining > Settings.exams.time_out %>
+        <h3 class="pull-right text-danger" id="clock">
+          <span id="hidden-data" data-time-over-msg="<%= t "exams.show.time_over" %>"
+            data-time-remaining="<%= @time_remaining %>">
+          </span>
+          <span class="glyphicon glyphicon-time">&nbsp</span>
+          <b id="time-remaining"></b>
+        </h3>
+      <% end %>
+    </div>
+    <div class="list-question">
+      <%= form_for @exam do |f| %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :status, value: Settings.exams.status.uncheck, class: "status_exam" %>
+        <%= f.fields_for :results do |builder| %>
+          <%= render "question", f: builder %>
+        <% end %>
+        <% if @exam.start? || @exam.testing? %>
+          <%= f.submit t("exams.show.submit"), class: "btn btn-primary" %>
+          <%= f.submit t("exams.show.save"), class: "btn btn-primary", id: "save_exam" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

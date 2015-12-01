@@ -78,6 +78,10 @@ $(function(){
       .replace(regexp, new_id));
     return false;
   });
+  $(document).on("click", "#save_exam", function() {
+    $(".status_exam").attr("value", "testing");
+    return true;
+  });
 });
 
 
