@@ -1,0 +1,35 @@
+<div class="question">
+  <p><%= "#{f.index + Settings.exams.one}. #{f.object.question.content}" %></p>
+  <ul>
+    <% case f.object.question.question_type %>
+    <% when Settings.question.type.single %>
+      <% f.object.question.answers.each do |answer| %>
+        <%= f.radio_button :content_answer, answer.id,
+          {checked: f.object.content_answer.include?(answer.id.to_s),
+          multiple: true, disabled: true} %>
+        <%= answer.content %><br/>
+      <% end %>
+    <% when Settings.question.type.multiple %>
+      <% f.object.question.answers.each do |answer| %>
+        <%= f.check_box :content_answer,
+          {checked: f.object.content_answer.include?(answer.id.to_s),
+          multiple: true, disabled: true}, answer.id, false %>
+        <%= answer.content %><br/>
+      <% end %>
+    <% when Settings.question.type.text %>
+      <%= f.text_field :content_answer, {multiple: true, disabled: true} %>
+    <% end %>
+    <br/>
+    <% if check_correct_answer f.object %>
+      <label>
+        <%= f.check_box :correct, {checked: true} %>
+        <span class="label label-success"><%= t "admin.exam.correct" %></span>
+      </label>
+    <% else %>
+      <label>
+        <%= f.check_box :correct, {checked: false} %>
+        <span class="label label-danger"><%= t "admin.exam.incorect" %></span>
+      </label>
+    <% end %>
+  </ul>
+</div>
