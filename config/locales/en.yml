@@ -147,6 +147,8 @@ en:
       show_all_exam: "Show All Exams"
       index:
         user_exam: "User Name"
+      correct: "Correct"
+      incorect: "Incorect"
   exams:
     index:
       title: "Exam"

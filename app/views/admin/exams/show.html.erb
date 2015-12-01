@@ -1,0 +1,18 @@
+<% provide :title, t("exams.test") %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="text-center">
+      <h1><%= @exam.subject.name %></h1>
+    </div>
+    <div class="list-question">
+      <%= form_for [:admin, @exam] do |f| %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :status, value: Settings.exams.status.checked, class: "status_exam" %>
+        <%= f.fields_for :results do |builder| %>
+          <%= render "question", f: builder %>
+        <% end %>
+          <%= f.submit t("exams.show.submit"), class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

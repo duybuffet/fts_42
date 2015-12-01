@@ -38,7 +38,7 @@
                   <%= exam.results.size == 0 ? t("exams.score_default") : exam.score %>
                 </td>
                 <td>
-                    <%= link_to t("exams.view"), exam, class: "btn btn-success" unless exam.start? %>
+                    <%= link_to t("exams.view"), admin_exam_path(exam), class: "btn btn-success" unless exam.start? %>
                 </td>
               </tr>
             <% end %>
