@@ -51,6 +51,7 @@ en:
   admin:
     add_answer_btn: "New answer"
     add_btn: "Add New"
+    edit_btn: "Update"
     delete_btn: "Delete"
     edit_btn: "Edit"
     add_success: "Add Successfully!"
@@ -97,6 +98,8 @@ en:
       questions: "All Questions"
       add_btn: "Add New"
       add_title: "Add Question"
+      edit_btn: "Update question"
+      edit_title: "Update"
       table:
         id: "ID"
         content: "Content"

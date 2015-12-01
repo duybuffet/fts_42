@@ -1,9 +1,15 @@
-$(function(){
-  var question_type = $(".question_type").val();
+var question_type;
+ready_var = function() {
+  question_type = $(".question_type").val();
   if (question_type == "text") {
     disable_btn_add(true);
   }
+}
 
+$(document).ready(ready_var);
+$(document).on("page:load", ready_var);
+
+$(function(){
   $(document).on("change", ".question_type", function(){
     question_type = $(".question_type").val();
     if (question_type == "single") {
@@ -25,6 +31,7 @@ $(function(){
   });
 
   $(document).on("click", ".checkbox_answer", function(){
+    question_type = $(".question_type").val();
     checkbox = this;
     if (question_type == "single"){
       if (checkbox.checked){
@@ -59,6 +66,7 @@ $(function(){
 
   $(document).on("click", ".remove_fields", function(){
     $(this).prev().val(1);
+    $(this).prev().prev().prev().prop("checked", false);
     $(this).parent().parent().hide(100);
   });
 
