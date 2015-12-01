@@ -114,6 +114,11 @@ en:
         waiting: "Waiting for approve"
         approved: "Approved"
         cancel: "Canceled"
+    exam:
+      exam_manage: "Exam Manager"
+      show_all_exam: "Show All Exams"
+      index:
+        user_exam: "User Name"
   exams:
     index:
       title: "Exam"

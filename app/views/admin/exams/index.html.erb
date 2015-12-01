@@ -1,0 +1,51 @@
+<% provide :title, t("exams.index.title") %>
+<% if user_signed_in? %>
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="list-exam">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th><%= t "admin.exam.index.user_exam" %></th>
+              <th><%= t "exams.index.created_date" %></th>
+              <th><%= t "exams.index.subject" %></th>
+              <th><%= t "exams.index.status" %></th>
+              <th><%= t "exams.index.duration" %></th>
+              <th><%= t "exams.index.question_number" %></th>
+              <th><%= t "exams.index.spent_time" %></th>
+              <th><%= t "exams.index.score" %></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @exams.each do |exam| %>
+              <tr id="exam-<%= exam.id %>">
+                <td><%= exam.user.name %></td>
+                <td><%= l exam.created_at, format: :created_date %></td>
+                <td><%= exam.subject.name %></td>
+                <td><%= status_exam exam %></td>
+                <td><%= Settings.exams.duration %></td>
+                <td><%= Settings.exams.question_number %></td>
+                <td>
+                  <% if exam.spent_time.nil? %>
+                    <%= t "exams.spent_time_default" %>
+                  <% else %>
+                    <%= "#{exam.spent_time / Settings.exams.time_minute} : #{exam.spent_time %
+                      Settings.exams.time_minute}" %>
+                  <% end %>
+                </td>
+                <td>
+                  <%= exam.results.size == 0 ? t("exams.score_default") : exam.score %>
+                </td>
+                <td>
+                    <%= link_to t("exams.view"), exam, class: "btn btn-success" unless exam.start? %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= paginate @exams %>
+      </div>
+    </div>
+  </div>
+<% end %>
