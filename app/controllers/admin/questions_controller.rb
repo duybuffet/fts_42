@@ -1,5 +1,5 @@
-class Admin::QuestionsController < ApplicationController
-  load_and_authorize_resource
+class Admin::QuestionsController < Admin::DashboardController
+  load_resource
   before_action :load_subjects, except: [:destroy, :index]
 
   def index

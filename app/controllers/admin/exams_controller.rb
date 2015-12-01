@@ -1,5 +1,5 @@
-class Admin::ExamsController < ApplicationController
-  load_and_authorize_resource
+class Admin::ExamsController < Admin::DashboardController
+  load_resource
 
   def index
     @exams = @exams.order_desc.page params[:page]

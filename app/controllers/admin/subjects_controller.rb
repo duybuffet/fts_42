@@ -1,5 +1,5 @@
-class Admin::SubjectsController < ApplicationController
-  load_and_authorize_resource
+class Admin::SubjectsController < Admin::DashboardController
+  load_resource
 
   def index
     @subjects = @subjects.page params[:page]
