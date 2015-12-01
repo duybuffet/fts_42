@@ -4,17 +4,19 @@
     <div class="text-center">
       <h1><%= @exam.subject.name %></h1>
     </div>
-    <div class="clock">
-      <% if @time_remaining > Settings.exams.time_out %>
-        <h3 class="pull-right text-danger" id="clock">
-          <span id="hidden-data" data-time-over-msg="<%= t "exams.show.time_over" %>"
-            data-time-remaining="<%= @time_remaining %>">
-          </span>
-          <span class="glyphicon glyphicon-time">&nbsp</span>
-          <b id="time-remaining"></b>
-        </h3>
-      <% end %>
-    </div>
+    <% if @exam.start? || @exam.testing? %>
+      <div class="clock">
+        <% if @time_remaining > Settings.exams.time_out %>
+          <h3 class="pull-right text-danger" id="clock">
+            <span id="hidden-data" data-time-over-msg="<%= t "exams.show.time_over" %>"
+              data-time-remaining="<%= @time_remaining %>">
+            </span>
+            <span class="glyphicon glyphicon-time">&nbsp</span>
+            <b id="time-remaining"></b>
+          </h3>
+        <% end %>
+      </div>
+    <% end %>
     <div class="list-question">
       <%= form_for @exam do |f| %>
         <%= f.hidden_field :user_id, value: current_user.id %>
