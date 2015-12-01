@@ -11,6 +11,12 @@ en:
   add_answer_btn: "New answer"
   add_btn: "Contribute Question"
   delete_btn: "Delete"
+  edit_btn: "Update"
+  edit_btn: "Edit"
+  update_success: "Update Successfully!"
+  update_fail: "Update Fail!"
+  delete_success: "Delete Successfully!"
+  delete_fail: "Delete Fail!"
   layouts:
     header:
       home: "Home"
@@ -25,11 +31,30 @@ en:
       sign_up_now: "Sign up now !"
       welcome: "Welcome to the FTS"
   question:
+    search_holder: "Enter question content ..."
     true_answer: You have to define at least 1 true answer
     add_question: "Contribute question"
     questions: "All Questions"
     add_btn: "Contribute"
     add_title: "Contribute Question"
+    edit_quesion: "Update Question"
+    add_question: "Add new question"
+    questions: "All Questions"
+    edit_title: "Update Question"
+    table:
+      id: "ID"
+      content: "Content"
+      type: "Type"
+      status: "Status"
+      action: "Action"
+    type:
+      single: "Single Choice"
+      multiple: "Multiple Choice"
+      text: "Text"
+    status:
+      waiting: "Waiting for approve"
+      approved: "Approved"
+      cancel: "Canceled"
   user:
     login: "Log in"
     signin_with: "Sign in with"

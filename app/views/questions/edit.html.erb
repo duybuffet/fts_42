@@ -1,20 +1,20 @@
-<% provide :title, t("question.add_title") %>
+<% provide :title, t("question.edit_title") %>
 <div class="col-md-offset-1 col-md-10">
-  <h1><%= t "question.add_title" %></h1>
-  <%= form_for @question, url: questions_path do |f| %>
+  <h1><%= t "question.edit_title" %></h1>
+  <%= form_for @question, url: question_path do |f| %>
     <span class="alert_true_answer"><%= t "question.true_answer" %></span>
     <%= render "shared/error_messages", object: f.object %>
-    <%= f.hidden_field :status, value: :waiting %>
+    <%= f.hidden_field :status, value: @question.status %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.label :subject %>
     <%= f.select :subject_id,
       options_from_collection_for_select(@subjects, :id, :name,
-      params[:subject_id]), {}, {class: "form-control"} %>
+      @question.subject.id), {}, {class: "form-control"} %>
     <%= f.label :content %>
     <%= f.text_field :content, class: "form-control" %>
-    <%= f.label :level %>
-    <%= f.select :question_type, options_for_select(Settings.question.type), {},
-      {class: "form-control question_type"} %>
+    <%= f.label :type %>
+    <%= f.select :question_type, options_for_select(Settings.question.type,
+      @question.question_type), {}, {class: "form-control question_type"} %>
     <br/>
     <div id="answers">
       <%= f.fields_for :answers do |answer| %>
@@ -28,7 +28,7 @@
       <%= new_fields_template f, :answers %>
     </div>
     <br/>
-    <%= f.submit t("add_btn"), class: "btn btn-primary col-md-12",
+    <%= f.submit t("edit_btn"), class: "btn btn-primary col-md-12",
       id: "btn_question" %>
   <% end %>
 </div>

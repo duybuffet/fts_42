@@ -1,0 +1,11 @@
+<%= search_form_for @q, html: {class: "col-md-offset-2 col-md-7"} do |f| %>
+  <div class="input-group">
+    <%= f.search_field :content_cont, placeholder: t("question.search_holder"),
+      class: "form-control" %>
+    <span class="input-group-btn">
+      <%= button_tag type: "submit", class: "btn btn-info" do %>
+        <span class="glyphicon glyphicon-search"></span>
+      <% end %>
+    </span>
+  </div>
+<% end %>
