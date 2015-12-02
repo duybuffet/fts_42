@@ -19,5 +19,13 @@
     <% when Settings.question.type.text %>
       <%= f.text_field :content_answer, multiple: true %>
     <% end %>
+    <br/>
+    <% if f.object.exam.checked? %>
+      <% if f.object.correct %>
+        <span class="label label-success"><%= t "admin.exam.correct" %></span>
+      <% else %>
+        <span class="label label-danger"><%= t "admin.exam.incorect" %></span>
+      <% end %>
+    <% end %>
   </ul>
 </div>
