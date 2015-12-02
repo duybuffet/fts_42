@@ -12,6 +12,10 @@ class Exam < ActiveRecord::Base
 
   scope :order_desc, ->{order created_at: :desc}
 
+  scope :created_long_ago, ->{where "created_at <= ?", 8.hours.ago}
+
+  scope :created_nearly, ->{where "created_at > ?", 8.hours.ago}
+
   def score
     self.results.select{|item| item.correct}.size
   end
@@ -22,6 +26,19 @@ class Exam < ActiveRecord::Base
 
   def time_spent
     self.spent_time.to_i + (Time.zone.now - self.updated_at).to_i
+  end
+
+  class << self
+    def check_exam_daily
+      Exam.created_long_ago.start.destroy_all
+      Exam.created_nearly.each do |exam|
+        UserMailer.send_exam_remainder(exam).deliver_now
+      end
+    end
+
+    def check_exam_monthly
+      Exam.start.destroy_all
+    end
   end
 
   private

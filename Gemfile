@@ -19,6 +19,7 @@ gem "devise", "3.4.1"
 gem "cancancan"
 gem "kaminari"
 gem "ransack"
+gem "whenever", require: false
 
 group :development, :test do
   gem "sqlite3", "1.3.9"

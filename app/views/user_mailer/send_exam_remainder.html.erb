@@ -1,0 +1,4 @@
+<h1><%= @exam.subject.name %></h1>
+<p><%= t "mail.hi" %> <%= @user.name %></p>
+<%= t "mail.remind" %>
+<%= link_to @exam.subject.name, exam_url(@exam) %>
