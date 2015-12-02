@@ -185,3 +185,5 @@ en:
     remind: "You have created at exam nearly. Go to this link to test!"
     subject: "Remind test exam"
     exam: "Exam"
+    exam_result: "Exam Result"
+    view: "View Result"
