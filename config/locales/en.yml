@@ -180,3 +180,8 @@ en:
   time:
     formats:
       created_date: "%D-%M-%Y %H:%M:%S"
+  mail:
+    hi: "Hi!"
+    remind: "You have created at exam nearly. Go to this link to test!"
+    subject: "Remind test exam"
+    exam: "Exam"
