@@ -1,0 +1,4 @@
+<h1><%= @exam.subject.name %></h1>
+<%= t "mail.exam_result" %>
+<%= @exam.score %>
+<%= link_to t("mail.view"), exam_path(@exam) %>

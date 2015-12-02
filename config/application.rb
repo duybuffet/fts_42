@@ -24,5 +24,6 @@ module BaseApp
     config.active_record.raise_in_transactional_callbacks = true
     config.time_zone = "Asia/Bangkok"
     config.active_record.default_timezone = :local
+    config.autoload_paths += %W(#{config.root}/app/workers)
   end
 end

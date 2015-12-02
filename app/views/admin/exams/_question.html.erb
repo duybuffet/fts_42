@@ -20,7 +20,7 @@
       <%= f.text_field :content_answer, {multiple: true, disabled: true} %>
     <% end %>
     <br/>
-    <% if check_correct_answer f.object %>
+    <% if f.object.check_correct_answer %>
       <label>
         <%= f.check_box :correct, {checked: true} %>
         <span class="label label-success"><%= t "admin.exam.correct" %></span>
