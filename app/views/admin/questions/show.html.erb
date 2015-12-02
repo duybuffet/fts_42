@@ -23,7 +23,9 @@
       <% end %>
     </div>
     <br/>
-    <%= f.submit @question.waiting? ? t("admin.question.approve_btn") : t("admin.question.cancel_btn"),
-      class: "btn btn-primary col-md-12" %>
+    <% if @question.text? %>
+      <%= f.submit @question.waiting? ? t("admin.question.approve_btn") : t("admin.question.cancel_btn"),
+        class: "btn btn-primary col-md-12" %>
+    <% end %>
   <% end %>
 </div>
