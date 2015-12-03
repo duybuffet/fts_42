@@ -23,10 +23,11 @@ gem "whenever", require: false
 gem "sidekiq"
 gem "omniauth"
 gem "omniauth-facebook"
-gem "figaro"
 gem "font-awesome-rails"
 gem "bootstrap-social-rails"
 gem "social-share-button"
+gem "omniauth-google-oauth2"
+gem "figaro"
 
 group :development, :test do
   gem "sqlite3", "1.3.9"
