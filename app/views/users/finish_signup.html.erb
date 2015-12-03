@@ -1,0 +1,24 @@
+<div id="add-email" class="container">
+  <h1><%= t "oauth.add_email" %></h1>
+  <%= form_for current_user, as: "user", url: finish_signup_path(current_user),
+    html: {role: "form"} do |f| %>
+    <% if @show_errors && current_user.errors.any? %>
+      <div id="error_explanation">
+        <% current_user.errors.full_messages.each do |msg| %>
+          <%= msg %><br>
+        <% end %>
+      </div>
+    <% end %>
+    <div class="form-group">
+      <%= f.label :email %>
+      <div class="controls">
+        <%= f.text_field :email, autofocus: true, class: "form-control input-lg",
+          placeholder: "<%= t "oauth.example" %>" %>
+        <p class="help-block"><%= t "oauth.confirm_email" %></p>
+      </div>
+    </div>
+    <div class="actions">
+      <%= f.submit t("oauth.continue"), class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

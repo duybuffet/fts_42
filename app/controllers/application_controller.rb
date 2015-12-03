@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_action :ensure_signup_complete
   before_action :configure_permitted_parameters, if: :devise_controller?
   protect_from_forgery with: :exception
   rescue_from CanCan::AccessDenied do | exception |
@@ -12,5 +13,12 @@ class ApplicationController < ActionController::Base
 
   def load_subjects
     @subjects = Subject.all
+  end
+
+  def ensure_signup_complete
+    return if action_name == "finish_signup"
+    if current_user && !current_user.email_verified?
+      redirect_to finish_signup_path current_user
+    end
   end
 end

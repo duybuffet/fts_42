@@ -21,6 +21,11 @@ gem "kaminari"
 gem "ransack"
 gem "whenever", require: false
 gem "sidekiq"
+gem "omniauth"
+gem "omniauth-facebook"
+gem "figaro"
+gem "font-awesome-rails"
+gem "bootstrap-social-rails"
 
 group :development, :test do
   gem "sqlite3", "1.3.9"

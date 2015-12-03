@@ -3,6 +3,7 @@ en:
   confirm: "Are you sure?"
   form_contain: "The form contains"
   back: "Back"
+  or: "Or"
   hello: "Hello"
   project: "FTS_42"
   error: "error"
@@ -56,7 +57,7 @@ en:
       approved: "Approved"
       cancel: "Canceled"
   user:
-    login: "Log in"
+    login: "Login Form"
     signin_with: "Sign in with"
     signup: "Sign up"
     logout: "Log out"
@@ -187,3 +188,9 @@ en:
     exam: "Exam"
     exam_result: "Exam Result"
     view: "View Result"
+  oauth:
+    add_email: "Add Email"
+    continue: "Continue"
+    example: "Example: email@me.com"
+    confirm_email: "Please confirm your email address. No spam."
+    signin_twitter: "Sign in With Twitter"
