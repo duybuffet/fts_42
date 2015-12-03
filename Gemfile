@@ -26,6 +26,7 @@ gem "omniauth-facebook"
 gem "figaro"
 gem "font-awesome-rails"
 gem "bootstrap-social-rails"
+gem "social-share-button"
 
 group :development, :test do
   gem "sqlite3", "1.3.9"
