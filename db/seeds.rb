@@ -4,7 +4,6 @@ Subject.create!(name: "Mysql")
 
 Subject.create!(name: "Ruby")
 
-exam = Exam.create!(status: 0, subject_id: 1, user_id: 1)
 30.times do |n|
   name = Faker::Lorem.sentence
   question_type = 0
