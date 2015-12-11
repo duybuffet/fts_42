@@ -1,11 +1,11 @@
 class Question < ActiveRecord::Base
-  belongs_to :subject
-  belongs_to :user
-
-  has_many :answers, dependent: :destroy
-  has_many :results, dependent: :destroy
   enum question_type: [:single, :multiple, :text]
   enum status: [:waiting, :approved]
+
+  belongs_to :subject
+  belongs_to :user
+  has_many :answers, dependent: :destroy
+  has_many :results, dependent: :destroy
 
   validates :content, presence: true
   validates :question_type, presence: true
