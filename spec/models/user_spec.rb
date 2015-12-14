@@ -1,4 +1,5 @@
 require "rails_helper"
+require "cancan/matchers"
 
 describe User, type: :model do
   let!(:user){FactoryGirl.create :user}
@@ -65,6 +66,41 @@ describe User, type: :model do
     it "password confirmation is not match" do
       user.password_confirmation = "123123123"
       expect(user).to_not be_valid
+    end
+  end
+
+  describe "admin abilities" do
+    subject(:ability){Ability.new admin}
+
+    context "when user is an admin" do
+      let(:admin){FactoryGirl.create(:admin)}
+
+      it{should be_able_to(:manage, Subject)}
+      it{should be_able_to(:manage, Question)}
+      it{should be_able_to(:manage, User)}
+      it{should be_able_to(:manage, Exam)}
+    end
+  end
+
+  describe "member abilities" do
+    subject(:ability){Ability.new member}
+
+    context "When user is a member" do
+      let(:member){FactoryGirl.create(:member)}
+
+      it{should_not be_able_to(:destroy, User.new)}
+      it{should_not be_able_to(:destroy, Exam)}
+      it{should_not be_able_to(:destroy, Subject)}
+      it{should_not be_able_to(:create, Subject)}
+      it{should_not be_able_to(:update, Subject)}
+
+      it{should be_able_to(:create, Question)}
+      it{should be_able_to(:update, Question, member.id)}
+      it{should be_able_to(:destroy, Question, member.id)}
+      it{should be_able_to(:index, Question, member.id)}
+      it{should be_able_to(:read, Exam, member.id)}
+      it{should be_able_to(:update, Exam, member.id)}
+      it{should be_able_to(:show, Exam, member.id)}
     end
   end
 end
