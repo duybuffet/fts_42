@@ -5,13 +5,20 @@ abort("The Rails environment is running in production mode!") if Rails.env
 require "spec_helper"
 require "rspec/rails"
 require "capybara/rails"
+require "devise"
 
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 
+  config.fixture_path = "#{::Rails.root}/spec/fixtures"
+
   config.use_transactional_fixtures = false
+
+  config.infer_spec_type_from_file_location!
+
+  config.include Devise::TestHelpers, type: :controller
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)

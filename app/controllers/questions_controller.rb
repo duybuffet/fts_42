@@ -14,7 +14,7 @@ class QuestionsController < ApplicationController
   def create
     if @question.save
       flash[:success] = t "contribute_success"
-      redirect_to new_question_path
+      redirect_to questions_path
     else
       flash.now[:danger] = t "contribute_fail"
       render :new
