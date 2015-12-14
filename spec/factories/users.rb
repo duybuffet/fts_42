@@ -10,5 +10,8 @@ FactoryGirl.define do
       email Faker::Internet.email
       role :admin
     end
+    factory :member do
+      email Faker::Internet.email
+    end
   end
 end
