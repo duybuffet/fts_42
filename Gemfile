@@ -38,6 +38,8 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "capybara"
   gem "database_cleaner"
+  gem "rspec-activemodel-mocks"
+  gem "rspec-collection_matchers"
 end
 
 group :production do

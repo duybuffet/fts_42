@@ -1,18 +1,17 @@
 require "rails_helper"
 
-describe Question, type: :model do
-  let!(:question){FactoryGirl.build :question}
+describe Question do
+  subject {FactoryGirl.build :question}
 
-  it {is_expected.to respond_to :content}
-  it {is_expected.to respond_to :question_type}
+  it {is_expected.to be_valid}
 
-  it "name can't be blank" do
-    question.content = ""
-    expect(question).to_not be_valid
+  describe "#content" do
+    before {subject.content = nil}
+    it {is_expected.to have(1).error_on :content}
   end
 
-  it "question type can't be blank" do
-    question.question_type = ""
-    expect(question).to_not be_valid
+  describe "#question_type" do
+    before {subject.question_type = nil}
+    it {is_expected.to have(1).error_on :question_type}
   end
 end

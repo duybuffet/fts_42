@@ -1,12 +1,12 @@
 require "rails_helper"
 
-describe Subject, type: :model do
-  let!(:subject){FactoryGirl.build :subject}
+describe Subject do
+  subject {FactoryGirl.build :subject}
 
-  it {is_expected.to respond_to :name}
+  it {is_expected.to be_valid}
 
-  it "name can't be blank" do
-    subject.name = ""
-    expect(subject).to_not be_valid
+  describe "#name" do
+    before {subject.name = nil}
+    it {expect(subject).to have(1).error_on :name}
   end
 end

@@ -1,108 +1,77 @@
 require "rails_helper"
 
 describe Admin::SubjectsController, type: :controller do
-  let!(:subject){FactoryGirl.create(:subject)}
-  let!(:user){FactoryGirl.create(:admin)}
-  before{sign_in user}
+  let(:subject) {FactoryGirl.create(:subject)}
+  let(:user) {FactoryGirl.create(:admin)}
+  before {sign_in user}
 
   describe "GET #index" do
-    it "returns status code 200" do
-      expect(response.status).to eq 200
-    end
+    before {get :index}
 
-    it "shows all contribute subjects of signed in user" do
-      get :index
-      expect(response).to be_success
-    end
+    it {expect(response.status).to eq 200}
 
-    it "renders index template" do
-      get :index
-      expect(response).to render_template :index
-    end
+    it {expect(response).to be_success}
+
+    it {expect(response).to render_template :index}
   end
 
   describe "GET #show" do
-    it "renders show template" do
-      get :show, id: subject
-      expect(response).to render_template :show
-    end
+    before {get :show, id: subject}
+
+    it {expect(response).to render_template :show}
   end
 
   describe "GET #new" do
-    it "returns status code 200" do
-      expect(response.status).to eq 200
-    end
+    before {get :new}
 
-    it "assigns a new Subject to @subject" do
-      get :new
-      expect(assigns(:subject)).to be_a_new(Subject)
-    end
+    it {expect(response.status).to eq 200}
 
-    it "renders the :new template" do
-      get :new
-      expect(response).to render_template :new
-    end
+    it {expect(assigns(:subject)).to be_a_new(Subject)}
+
+    it {expect(response).to render_template :new}
   end
 
   describe "POST #create" do
     context "with valid attributes" do
-      before{post :create, subject: FactoryGirl.attributes_for(:subject)}
+      before {post :create, subject: FactoryGirl.attributes_for(:subject)}
 
-      it "redirects to the subject index" do
-        expect(response).to redirect_to admin_subjects_path
-      end
+      it {expect(response).to redirect_to admin_subjects_path}
 
-      it "render a success flash" do
-        expect(flash[:success]).to be_present
-      end
+      it {expect(flash[:success]).to be_present}
     end
 
     context "with invalid attributes" do
-      before{post :create, subject: FactoryGirl.attributes_for(:subject, name: nil)}
+      before {post :create, subject: FactoryGirl.attributes_for(:subject, name: nil)}
 
-      it "re-renders the :new template" do
-        expect(response).to render_template :new
-      end
+      it {expect(response).to render_template :new}
 
-      it "renders a danger flash" do
-        expect(flash[:danger]).to be_present
-      end
+      it {expect(flash[:danger]).to be_present}
     end
   end
 
   describe "PATCH #update" do
     context "with valid attributes" do
-      before{patch :update, id: subject, subject: attributes_for(:subject)}
-      it "redirects to the subject index" do
-        expect(response).to redirect_to admin_subjects_path
-      end
+      before {patch :update, id: subject, subject: attributes_for(:subject)}
 
-      it "renders a success flash" do
-        expect(flash[:success]).to be_present
-      end
+      it {expect(response).to redirect_to admin_subjects_path}
+
+      it {expect(flash[:success]).to be_present}
     end
 
     context "with invalid attributes" do
-      before{patch :update, id: subject, subject: attributes_for(:subject, name: nil)}
-      it "re-renders the :edit template" do
-        expect(response).to render_template :edit
-      end
+      before {patch :update, id: subject, subject: attributes_for(:subject, name: nil)}
 
-      it "renders a danger flash" do
-        expect(flash[:danger]).to be_present
-      end
+      it {expect(response).to render_template :edit}
+
+      it {expect(flash[:danger]).to be_present}
     end
   end
 
   describe "DELETE #destroy" do
-    before{delete :destroy, id: subject}
+    before {delete :destroy, id: subject}
 
-    it "redirects to the subject index" do
-      expect(response).to redirect_to admin_subjects_path
-    end
+    it {expect(response).to redirect_to admin_subjects_path}
 
-    it "renders a success flash" do
-      expect(flash[:success]).to be_present
-    end
+    it {expect(flash[:success]).to be_present}
   end
 end

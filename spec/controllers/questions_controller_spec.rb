@@ -1,98 +1,69 @@
 require "rails_helper"
 
 describe QuestionsController, type: :controller do
-  let!(:question){FactoryGirl.create :question}
+  let(:question){FactoryGirl.create :question}
   before{sign_in question.user}
   describe "GET #index" do
-    it "returns status code 200" do
-      expect(response.status).to eq 200
-    end
+    before {get :index, {user_id: question.user_id}}
 
-    it "shows all contribute questions of signed in user" do
-      get :index, {user_id: question.user_id}
-      expect(response).to be_success
-    end
+    it {expect(response.status).to eq 200}
 
-    it "renders index template" do
-      get :index, {user_id: question.user_id}
-      expect(response).to render_template :index
-    end
+    it {expect(response).to be_success}
+
+    it {expect(response).to render_template :index}
   end
 
   describe "GET #new" do
-    it "returns status code 200" do
-      expect(response.status).to eq 200
-    end
+    before {get :new}
 
-    it "assigns a new Question to @question" do
-      get :new
-      expect(assigns(:question)).to be_a_new(Question)
-    end
-    it "renders the :new template" do
-      get :new
-      expect(response).to render_template :new
-    end
+    it {expect(response.status).to eq 200}
+
+    it {expect(assigns(:question)).to be_a_new(Question)}
+
+    it {expect(response).to render_template :new}
   end
 
   describe "POST #create" do
     context "with valid attributes" do
-      before{post :create, question: FactoryGirl.attributes_for(:question)}
+      before {post :create, question: FactoryGirl.attributes_for(:question)}
 
-      it "redirects to the question index" do
-        expect(response).to redirect_to questions_path
-      end
+      it {expect(response).to redirect_to questions_path}
 
-      it "render a success flash" do
-        expect(flash[:success]).to be_present
-      end
+      it {expect(flash[:success]).to be_present}
     end
 
     context "with invalid attributes" do
-      before{post :create, question: FactoryGirl.attributes_for(:question, question_type: nil)}
+      before {post :create, question: FactoryGirl.attributes_for(:question, question_type: nil)}
 
-      it "re-renders the :new template" do
-        expect(response).to render_template :new
-      end
+      it {expect(response).to render_template :new}
 
-      it "renders a danger flash" do
-        expect(flash[:danger]).to be_present
-      end
+      it {expect(flash[:danger]).to be_present}
     end
   end
 
   describe "PATCH #update" do
     context "with valid attributes" do
-      before{patch :update, id: question, question: attributes_for(:question)}
-      it "redirects to the question index" do
-        expect(response).to redirect_to questions_path
-      end
+      before {patch :update, id: question, question: attributes_for(:question)}
 
-      it "renders a success flash" do
-        expect(flash[:success]).to be_present
-      end
+      it {expect(response).to redirect_to questions_path}
+
+      it {expect(flash[:success]).to be_present}
     end
 
     context "with invalid attributes" do
-      before{patch :update, id: question, question: attributes_for(:question, question_type: nil)}
-      it "re-renders the :edit template" do
-        expect(response).to render_template :edit
-      end
+      before {patch :update, id: question, question: attributes_for(:question, question_type: nil)}
 
-      it "renders a danger flash" do
-        expect(flash[:danger]).to be_present
-      end
+      it {expect(response).to render_template :edit}
+
+      it {expect(flash[:danger]).to be_present}
     end
   end
 
   describe "DELETE #destroy" do
-    before{delete :destroy, id: question}
+    before {delete :destroy, id: question}
 
-    it "redirects to the question index" do
-      expect(response).to redirect_to questions_path
-    end
+    it {expect(response).to redirect_to questions_path}
 
-    it "renders a success flash" do
-      expect(flash[:success]).to be_present
-    end
+    it {expect(flash[:success]).to be_present}
   end
 end

@@ -9,4 +9,11 @@ FactoryGirl.define do
       user {FactoryGirl.build :admin}
     end
   end
+
+  factory :single_question do
+    content Faker::Lorem.sentence
+    question_type :single
+    status :waiting
+    user {FactoryGirl.build :user}
+  end
 end

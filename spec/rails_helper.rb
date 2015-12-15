@@ -19,6 +19,8 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   config.include Devise::TestHelpers, type: :controller
+  config.include Devise::TestHelpers, type: :view
+  config.include Capybara::DSL
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)

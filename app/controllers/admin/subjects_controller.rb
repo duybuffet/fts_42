@@ -46,6 +46,6 @@ class Admin::SubjectsController < Admin::DashboardController
 
   private
   def subject_params
-    params.require(:subject).permit :name
+    params.require(:subject).permit :name, :id
   end
 end
